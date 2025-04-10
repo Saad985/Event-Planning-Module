@@ -1,4 +1,5 @@
 const express = require('express');
+const serverless = require('serverless-http');
 const mysql = require('mysql');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
@@ -13,6 +14,9 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+
+
+module.exports.handler = serverless(app);
 
 
 // CORS Configuration
